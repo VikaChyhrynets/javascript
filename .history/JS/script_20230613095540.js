@@ -1,0 +1,13 @@
+console.log(10);
+alert(20);
+
+let age = 29;
+let user = "Vika";
+let message = "Hello";
+console.log(age);
+console.log(user);
+console.log(message);
+
+const name = "Funtik";
+name = "Basya"
+console.log(name);
