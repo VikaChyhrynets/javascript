@@ -1,4 +1,4 @@
-/* console.log(10);
+console.log(10);
 alert(20);
 
 let age = 29;
@@ -176,7 +176,7 @@ console.log(xy);
 console.log(true&&true);
 console.log(false&&true);
 console.log(true&&false);
-console.log(false&&false); */
+console.log(false&&false);
 
 let hour = 12;
 let minute = 30;
