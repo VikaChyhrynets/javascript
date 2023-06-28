@@ -194,9 +194,6 @@ console.log(!!"text"); */
 
 // FUNCTIONS
 
-'use strict'
-function work() {
-    console.log('hi');
-}
+
 
 
