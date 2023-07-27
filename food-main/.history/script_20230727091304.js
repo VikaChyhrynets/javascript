@@ -77,75 +77,23 @@ window.addEventListener('DOMContentLoaded', () => {
   setClock('.timer', timeEnd);
 
   // modal
-  /*
   const modalTrigger = document.querySelectorAll('[data-modal]');
   const modalClose = document.querySelector('[data-close]');
   const modal = document.querySelector('.modal');
   
   modalTrigger.forEach(btn => {
     btn.addEventListener('click', () => {
-      modal.classList.add('show');
-      modal.classList.remove('hide');
-      document.body.style.overflow = "hidden";
+      const modalId = btn.dataset.modal;
+      const modalToShow = document.querySelector(modalId);
+  
+      modalToShow.classList.remove('hide');
+      modalToShow.classList.add('show');
     });
   });
   
   modalClose.addEventListener('click', () => {
-    modal.classList.add('hide');
     modal.classList.remove('show');
-    document.body.style.overflow = "hidden";
+    modal.classList.add('hide');
   });
-  
-  modal.addEventListener('click', (e)=> {
-    if(e.target === modal) {
-      modal.classList.add('hide');
-      modal.classList.remove('show');
-      document.body.style.overflow = '';
-    }
-  });
-
-  document.addEventListener('keydown', (e)=> {
-    if(e.code === 'Escape') {
-      modal.classList.add('hide');
-      modal.classList.remove('show');
-      document.body.style.overflow = '';
-    }
-  })*/
-
-  const modalTrigger = document.querySelectorAll('[data-modal]');
-const modalClose = document.querySelector('[data-close]');
-const modal = document.querySelector('.modal');
-
-function showModal() {
-  modal.classList.add('show');
-  modal.classList.remove('hide');
-  document.body.style.overflow = "hidden";
-}
-
-function hideModal() {
-  modal.classList.add('hide');
-  modal.classList.remove('show');
-  document.body.style.overflow = "";
-}
-
-function onModalClick(e) {
-  if (e.target === modal) {
-    hideModal();
-  }
-}
-
-function onEscapeKeyPress(e) {
-  if (e.code === 'Escape') {
-    hideModal();
-  }
-}
-
-modalTrigger.forEach(btn => {
-  btn.addEventListener('click', showModal);
-});
-
-modalClose.addEventListener('click', hideModal);
-modal.addEventListener('click', onModalClick);
-document.addEventListener('keydown', onEscapeKeyPress);
 
 }); 
