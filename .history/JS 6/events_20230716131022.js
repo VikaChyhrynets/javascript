@@ -1,0 +1,94 @@
+'use strict'
+// 1
+/*
+<body>
+    <button type = 'button' onclick="console.log(Date())">Date</button>
+    <script src="events/events.js"></script>
+</body>
+*/
+
+
+// 2
+/*
+<body>
+    <input type = 'text' id = 'number1'>
+    <input type = 'text' id = 'number2'>
+    <div id="answer"></div>
+    <button type ='button' onclick="sum()">Count</button> 
+    <script src="events/events.js"></script>
+</body>
+
+function sum() {
+    // знак + означает, что мы берем value, не переведенное в Стринг
+    const number1 = +document.querySelector('#number1').value;
+    const number2 = +document.querySelector('#number2').value;
+    const sum = number1 + number2;
+    document.querySelector('#answer').textContent = sum;
+}
+*/
+
+
+// 3
+/* function changeColor() {
+    document.body.style.backgroundColor = `rgb(${Math.round(Math.random()*255)},
+    rgb(${Math.round(Math.random()*255)}, rgb(${Math.round(Math.random()*255)})`;
+}
+document.onclick = changeColor; */
+
+
+// 4
+/* function message() {
+    // this - обращаемся к кнопке для которой вызван обработчик
+    console.log(this.textContent);
+}
+// получим кнопки и сохраним ссылки на них в переменну btns
+const btns = document.querySelectorAll('button');
+// переберем кнопки и добавим к ним обработчик, используя onclick
+btns.forEach(function(element) {
+    element.onclick = message;
+}); */
+
+
+// 5
+/* function changeBgColor() {
+    document.body.style.backgroundColor = '#3f51b5';
+}
+document.addEventListener('click', changeBgColor, false);
+// document.removeEventListener('click', changeBgColor, false); */
+
+
+// 6
+/* document.querySelector('.dropdown__trigger').onclick = function () {
+    this.closest('.dropdown').classList.toggle('show');
+} */
+// Element.closest() возвращает ближайший родительский элемент (или сам элемент)
+// который соответствует заданному css-селектору или null, если таких элементов вообще нет
+
+// Свойство classДist возвращает псевдомассив DOMTokenList, содержащий все классы элемента
+
+
+// DOM
+/* №1 
+    <input type="text" value="1">
+    <input type="text" value="2">
+    <input type="text" value="3">
+    <p id="test"></p> --></input> */
+
+    /*
+    <body>
+    <input type="text" value="1">
+    <input type="text" value="2">
+    <input type="text" value="3">
+    <p id="test"></p>
+    <script src="JS 6/events.js"></script>
+</body>
+*/
+
+let inputs = document.querySelectorAll('input[type="text"]');
+let testParagraph = document.getElementById('test');
+
+inputs.forEach(function(input) {
+  input.addEventListener('blur', function() {
+    testParagraph.textContent = this.value;
+  });
+});                                                                                                                                                 
