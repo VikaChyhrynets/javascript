@@ -214,16 +214,8 @@ function showSlides(n) {
   if (n < 1) {
     slideIndex = slides.length;
   }
-
-  slides.forEach(item => item.style.display = 'none');
-  slides[slideIndex-1].style.display = 'block';
-  if(slides.length<10) {
-    current.textContent = `0${slideIndex}`;
-  }
-  else {
-    current.textContent = slideIndex;
-  }
-  
+  slides.forEach(item => item.classList.remove('show-slide')); // Use classList to remove the class
+  slides[slideIndex - 1].classList.add('show-slide'); // Use classList to add the class
   if (slides.length < 10) {
     current.textContent = `0${slideIndex}`;
   } else {
@@ -240,7 +232,7 @@ prev.addEventListener('click', () => {
 });
 
 next.addEventListener('click', () => {
-  plusSlides(1); // Change to 1 to move the slides forward
+  plusSlides(1); // Change to 1 instead of -1 to move forward
 });
 
 }); 
