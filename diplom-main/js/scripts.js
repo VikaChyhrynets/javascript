@@ -858,35 +858,41 @@ $(document).ready(function() {
 
 
   // slider 2
+function initSlider() {
+    var testimonilasCarousel = document.querySelector('.testimonilas-carousel');
+    var slides = testimonilasCarousel.querySelectorAll('.swiper-slide');
+    var currentIndex = 0;
 
-  const carousel = document.querySelector('.testimonilas-carousel');
-  const nextBtn = document.querySelector('.tc-button-next');
-  const prevBtn = document.querySelector('.tc-button-prev');
-  const slideWidth = carousel.querySelector('.swiper-slide').offsetWidth;
-  
-  function slideNext() {
-    carousel.style.transition = 'transform 0.5s';
-    carousel.style.transform = `translateX(-${slideWidth}px)`;
-    setTimeout(() => {
-      carousel.appendChild(carousel.children[0]);
-      carousel.style.transition = 'none';
-      carousel.style.transform = 'translateX(0)';
-    }, 500); 
-  }
+    function showSlide(index) {
+        slides.forEach(function(slide, i) {
+            slide.style.display = i === index ? 'block' : 'none';
+        });
+    }
 
-  function slidePrev() {
-    carousel.style.transition = 'none';
-    carousel.prepend(carousel.children[carousel.children.length - 1]);
-    carousel.style.transform = `translateX(-${slideWidth}px`;
-    setTimeout(() => {
-      carousel.style.transition = 'transform 0.5s';
-      carousel.style.transform = 'translateX(0)';
-    }, 50); 
-  }
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % slides.length;
+        showSlide(currentIndex);
+    }
 
-  nextBtn.addEventListener('click', slideNext);
-  prevBtn.addEventListener('click', slidePrev);
-  
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        showSlide(currentIndex);
+    }
+
+    var nextButton = document.querySelector('.tc-button-next');
+    var prevButton = document.querySelector('.tc-button-prev');
+
+    nextButton.addEventListener('click', nextSlide);
+    prevButton.addEventListener('click', prevSlide);
+
+    showSlide(currentIndex);
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    initSlider();
+});
+
+
 
   // Countdown
   function updateCountdown() {
